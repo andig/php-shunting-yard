@@ -605,7 +605,7 @@ class Parser
         return 0;
     }
 
-    public static function parse($term, Context $ctx = null)
+    public static function parse($term, ?Context $ctx = null)
     {
         $obj = new self(new Scanner($term));
 
