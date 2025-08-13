@@ -93,7 +93,7 @@ class Context
     /**
      * Define a custom constant or a function
      *
-     * @param $name Name of the constant or function
+     * @param $name name of the constant or function
      * @param mixed $value
      * @param string $type
      * @throws \Exception
