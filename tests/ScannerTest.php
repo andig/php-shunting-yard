@@ -2,6 +2,7 @@
 
 namespace tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use RR\Shunt\Scanner;
 use RR\Shunt\Token;
 use RR\Shunt\Exception\SyntaxError;
@@ -11,9 +12,8 @@ class ScannerTest extends \PHPUnit\Framework\TestCase
     /**
      * @param $term
      * @param $expected
-     *
-     * @dataProvider terms
      */
+    #[DataProvider('terms')]
     public function testScanner($term, $expected)
     {
         $scanner = new Scanner($term);
@@ -27,7 +27,7 @@ class ScannerTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $tokens);
     }
 
-    public function terms()
+    public static function terms()
     {
         return array(
             // Simple math

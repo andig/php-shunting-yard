@@ -2,6 +2,7 @@
 
 namespace tests\Parser;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use RR\Shunt\Parser;
 use RR\Shunt\Exception\RuntimeError;
 
@@ -11,9 +12,8 @@ class SimpleParserTest extends \PHPUnit\Framework\TestCase
     /**
      * @param $equation
      * @param $expected
-     *
-     * @dataProvider simpleEquations
      */
+    #[DataProvider('simpleEquations')]
     public function testParserWithSimpleEquations($equation, $expected)
     {
         $actual = Parser::parse($equation);
@@ -21,7 +21,7 @@ class SimpleParserTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    public function simpleEquations()
+    public static function simpleEquations()
     {
         return array(
             array(
