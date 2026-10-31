@@ -2,6 +2,7 @@
 
 namespace tests\Parser;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use RR\Shunt\Context;
 use RR\Shunt\Parser;
 
@@ -12,9 +13,8 @@ class ConstantsParserTest extends \PHPUnit\Framework\TestCase
      * @param $equation
      * @param array $constants
      *                         @param $expected
-     *
-     * @dataProvider equationAndConstantsProvider
      */
+    #[DataProvider('equationAndConstantsProvider')]
     public function testParserWithConstants($equation, array $constants, $expected)
     {
         $context = new Context();
@@ -28,7 +28,7 @@ class ConstantsParserTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    public function equationAndConstantsProvider()
+    public static function equationAndConstantsProvider()
     {
         return array(
             array(

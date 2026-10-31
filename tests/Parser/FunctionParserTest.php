@@ -113,7 +113,7 @@ class FunctionParserTest extends \PHPUnit\Framework\TestCase
         $equation = 'pi()';
         $actual = Parser::parse($equation, $context);
 
-        $expected = 3.1415926535898;
+        $expected = M_PI;
         $this->assertEquals($expected, $actual);
     }
 

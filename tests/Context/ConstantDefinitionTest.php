@@ -2,13 +2,14 @@
 
 namespace tests\Context;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use RR\Shunt\Context;
 use RR\Shunt\Exception\RuntimeError;
 use Exception;
 
 class ConstantDefinitionTest extends \PHPUnit\Framework\TestCase
 {
-    public function constantsProvider()
+    public static function constantsProvider()
     {
         return array(
             array(
@@ -45,9 +46,8 @@ class ConstantDefinitionTest extends \PHPUnit\Framework\TestCase
     /**
      * @param $value
      * @param $expected
-     *
-     * @dataProvider constantsProvider
      */
+    #[DataProvider('constantsProvider')]
     public function testConstantDefinitionAndCall($value, $expected)
     {
         $context = new Context();
